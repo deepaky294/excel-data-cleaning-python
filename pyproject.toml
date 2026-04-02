@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "excel-data-cleaning-python"
+version = "0.1.0"
+description = "Excel data cleaning pipeline for dealer and subdealer datasets."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.0",
+  "openpyxl>=3.0",
+  "XlsxWriter>=3.0",
+]
+optional-dependencies = { dev = ["pytest>=8.0", "pre-commit>=3.0", "ruff>=0.0.281", "black>=24.7.0"] }
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+select = ["E", "F", "W", "C", "Q"]
